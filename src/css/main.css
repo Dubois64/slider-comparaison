@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  display: block;
+}
+
+.slider {
+  position: relative; /* Référence (parent) pour le positionnement absolu */
+  display: inline-block; /* La largeur du slider est égale à la largeur de l'image qu'il contient */
+}
+
+.slider-image-before {
+  display: block; /* Évite l'espace sous l'image */
+}
+
+.slider-image-after {
+  position: absolute; /* Positionné par rapport au parent (.slider) */
+  top: 0; /* Collé en haut du parent */
+  left: 0; /* Collé à gauche du parent */
+  width: 50%; /* Moitié de la largeur du parent */
+  height: 100%; /* Pleine hauteur du parent */
+  object-fit: cover; /* Évite la déformation de l'image */
+  object-position: left; /* Aligné à gauche */
+}
+
+.slider-separator {
+  width: 2px; /* Ligne de séparation */
+  height: 100%; /* Hauteur complète du conteneur */
+  position: absolute; /* Positionnée par rapport au parent (.slider) */
+  top: 0; /* Collée en haut */
+  left: 50%; /* Centrée horizontalement */
+  transform: translateX(
+    -2px
+  ); /* Centre la ligne sur le curseur (décale de la moitié de sa largeur) */
+  background: #ffffff; /* Couleur noire pour la ligne */
+  display: flex; /* Active Flexbox pour centrer l’enfant (le handler) */
+  justify-content: center; /* Centre horizontalement le handler */
+  align-items: center; /* Centre verticalement le handler */
+}
+
+.slider-handler {
+  width: 40px; /* Largeur du bouton de glissement */
+  height: 40px; /* Hauteur identique (rond) */
+  background: #7a7a7a; /* Fond noir */
+  border-radius: 100px; /* Coins arrondis = cercle */
+  flex-shrink: 0; /* Ne se réduit pas dans le conteneur flex */
+  shape-outside: circle(50%) margin-box;
+}
+
+.slider-range {
+  position: absolute; /* Positionné au-dessus du slider (sur toute sa surface). */
+  inset: 0; /* Étendu sur toute la zone du parent (top/right/bottom/left = 0). */
+  opacity: 0; /* Rend l'input invisible, tout en restant interactif. */
+}
+
+* {
+  max-width: 100%;
+}
